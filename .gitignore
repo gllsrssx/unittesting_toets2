@@ -1,0 +1,6 @@
+/.idea/
+*.iml
+/out/
+/target/
+/code_coverage/
+.fake
