@@ -4,3 +4,5 @@
 /target/
 /code_coverage/
 .fake
+.vscode/
+```
