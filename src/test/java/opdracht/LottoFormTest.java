@@ -101,7 +101,7 @@ public class LottoFormTest {
     public void testPlayResultFound5Plus1() {
         Set<Integer> numbers = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6));
         LottoForm lottoForm = new LottoForm(numbers);
-        Set<Integer> gamble = new HashSet<>(Set.of(0,1,2,3,4,5));
+        Set<Integer> gamble = new HashSet<>(Set.of(0, 1, 2, 3, 4, 5));
         Integer extraNumber = 0;
         assertEquals(PlayResult.FOUND_5PLUS1, lottoForm.play(gamble, extraNumber));
     }
@@ -112,6 +112,15 @@ public class LottoFormTest {
         LottoForm lottoForm = new LottoForm(numbers);
         Set<Integer> gamble = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6));
         Integer extraNumber = 0;
+        assertEquals(PlayResult.FOUND_6, lottoForm.play(gamble, extraNumber));
+    }
+
+    @Test
+    public void testPlayResultFoundAll() {
+        Set<Integer> numbers = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6));
+        LottoForm lottoForm = new LottoForm(numbers);
+        Set<Integer> gamble = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6));
+        Integer extraNumber = 6;
         assertEquals(PlayResult.FOUND_6, lottoForm.play(gamble, extraNumber));
     }
 

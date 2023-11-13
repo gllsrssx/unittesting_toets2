@@ -7,7 +7,7 @@ public class LottoForm {
     private final Set<Integer> numbers;
     private boolean extraNumberWasFound = false;
     private final Set<Integer> winners = new HashSet<>();
-    
+
     public LottoForm(Set<Integer> numbers) {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException("Expecting 6 unique numbers, got " + numbers.size());
@@ -57,7 +57,7 @@ public class LottoForm {
             }
             return PlayResult.FOUND_5;
         }
-        if (winners.size() == 6) {
+        if (winners.size() > 5) {
             return PlayResult.FOUND_6;
         }
         return PlayResult.NO_WIN;
