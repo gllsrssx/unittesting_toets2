@@ -1,15 +1,16 @@
 package opdracht;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class LottoForm {
     private final Set<Integer> numbers;
     private boolean extraNumberWasFound = false;
-    private final Set<Integer> winners = null;
-
+    private final Set<Integer> winners = new HashSet<>();
+    
     public LottoForm(Set<Integer> numbers) {
         if (numbers.size() != 6) {
-            throw new IllegalArgumentException("Expecting 6 unique numbers + 1 extra number, got " + numbers.size());
+            throw new IllegalArgumentException("Expecting 6 unique numbers, got " + numbers.size());
         }
         for (Integer number : numbers) {
             if (number < 0 || number > 45) {
@@ -31,6 +32,9 @@ public class LottoForm {
                 throw new IllegalArgumentException("Expecting numbers between 0 and 45, got " + number);
             }
         }
+
+        this.extraNumberWasFound = false;
+        this.winners.clear();
 
         for (Integer number : gamble) {
             if (numbers.contains(number)) {
